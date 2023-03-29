@@ -34,6 +34,9 @@ export default function Cube(props){
             backgroundColor: 'green'
 
         },
+        background:{
+            backgroundColor: "white"
+        },
         buttonStyle: {
             width: "100px",
             height: "100px",
@@ -60,10 +63,15 @@ export default function Cube(props){
     return(
         <div>
             {/* <a style = {styles.Squirrel} onClick = {props.handleClick}><img src = {Squirrel}></img></a> */}
-            <div style = {styles.smallCube}></div>
-            <div style = {styles.largeCube}></div>
+            <div style = {styles.background}>
+                {props.count}   
+            </div>
+
+            <div onClick = {props.handleClick}>
+                {props.count < 3 ? <div style = {styles.smallCube}></div> : <div style = {styles.largeCube}></div>}
+            </div>
             <hr></hr>
-            {props.count}
+            
         </div>
         // <div style = {cubeStyle} onClick = {() => {clickEvent(props)}} className = "testCube">
         //     {/* {(props.count <= 3) ? props.count : props.count%4}
