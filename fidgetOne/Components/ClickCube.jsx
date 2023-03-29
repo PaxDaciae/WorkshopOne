@@ -8,6 +8,7 @@ export default function Cube(props){
     const [cubeState, setCubeState] = useState(0)
 
 
+    // TEST BED TO SEE IF STYLES CAN BE STATE //
     const [cubeStyle, setCubeStyle] = useState({
         height: "100px",
         width: "100px",
@@ -19,12 +20,29 @@ export default function Cube(props){
         userSelect: "none"
     })    
 
-    const buttonStyle = {
-        width: "100px",
-        height: "100px",
-        backgroundColor: "yellow",
-        ImageBackground: `url(${Squirrel})`
+    // TEST BED TO SEE IF STYLES CAN BE CONTAINED IN A SINGLE OBJECT //
+    // styles OBJECT LITERAL CONTAINS OTHER STYLE PRESETS AS OBJECTS //
+    const styles = {
+        smallCube: {
+            height: "100px",
+            width: "100px",
+            backgroundColor: 'red'
+        },
+        largeCube: {
+            height: "200px",
+            width: "200px",
+            backgroundColor: 'green'
+
+        },
+        buttonStyle: {
+            width: "100px",
+            height: "100px",
+            backgroundColor: "yellow",
+            ImageBackground: `url(${Squirrel})`
+        },
     }
+
+    console.log("STLS", styles.smallCube, cubeStyle)
     
     // function clickEvent(props){
     //     props.handleClick()
@@ -41,7 +59,9 @@ export default function Cube(props){
 
     return(
         <div>
-            <a onClick = {props.handleClick}><img src = {Squirrel}></img></a>
+            {/* <a style = {styles.Squirrel} onClick = {props.handleClick}><img src = {Squirrel}></img></a> */}
+            <div style = {styles.smallCube}></div>
+            <div style = {styles.largeCube}></div>
             <hr></hr>
             {props.count}
         </div>
