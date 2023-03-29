@@ -20,7 +20,7 @@ export default function Circle(props){
     let circleNature = props.count === 3 ? 'styles.largeCircle' : 'styles.smallCircle'
     // console.log("STL", circleNature)
     return(
-        <div style = {props.count === 0 ? styles.largeCircle : styles.smallCircle} onClick = {props.handleClick}>
+        <div style = {props.count === 0 ? styles.largeCircle : styles.smallCircle} onClick = {() => props.handleClick(props.id)}>
             {console.log(`AICI:`, styles.CircleNature)}
             {props.count}
             {/* <br></br>

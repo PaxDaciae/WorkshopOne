@@ -6,20 +6,13 @@ import './App.css'
 function App() {
   // THIS ARRAY SHOULD HOLD SEVERAL CIRCLES EACH WITH THEIR OWN STATE// 
   
-  const [circleData, setCircleData]= useState([
-    {
-      id: 1,
-      count: 0
-    },
-    {
-      id: 2,
-      count: 0
-    },
-    {
-      id: 3,
-      count: 0
-    },
-  ] )
+  const [circleData, setCircleData]= useState(
+    [
+    { id: 1, count: 0 },
+    { id: 2, count: 0 },
+    { id: 3, count: 0 },
+    ] 
+  )
 
   console.log(circleData)
   const circleArray = circleData.map(circle => <Circle key = {circle.id} id = {circle.id} count = {circle.count} handleClick = {increaseCircleCount}/>)
@@ -29,17 +22,21 @@ function App() {
   function increaseCircleCount(x){
 
     // THIS STEP USEFUL TO DETERMINE TYPES OF DATA I AM WORKING WITH //
-    function determineCircleData(){
+    /* function determineCircleData(){
       for (let circ in circleData){
         console.log("CIRCLES", circ , typeof(circ))  // STRING
         console.log("CIRC[CIRC]", circleData[circ], typeof(circleData[circ]))  // OBJECT
         console.log("CIRC[CIRC][ID]", circleData[circ].id, typeof(circleData[circ].id))  // NUMBER
       }
     }
-    determineCircleData()
+    determineCircleData() */
 
-    const target = circleData.filter(circle => (circleData[circle].id != 20))
-    console.log("TRG", target)
+    const target = circleData.filter(circleData => (circleData.id === x))
+    console.log("X", x, "TRG", target, typeof(target), target.id)
+    // setCircleData(prevData => [{
+    //   ...prevData,
+      
+    // }])
     // console.log(typeof(circleData[1]), circleData[circle])
   }
   // STYLE FOR CUBE COMPONENT HOLDER //
