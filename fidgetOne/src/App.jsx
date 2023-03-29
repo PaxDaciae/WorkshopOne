@@ -27,14 +27,19 @@ function App() {
   const [count, setCount] = useState(0)
 
   function increaseCircleCount(x){
+
     // THIS STEP USEFUL TO DETERMINE TYPES OF DATA I AM WORKING WITH //
-    for (let circ in circleData){
-      console.log("CIRCLES", circ)
-      console.log("CIRC[CIRC]", circleData[circ])
-      console.log("CIRC[CIRC][ID]", circleData[circ].id)
+    function determineCircleData(){
+      for (let circ in circleData){
+        console.log("CIRCLES", circ , typeof(circ))  // STRING
+        console.log("CIRC[CIRC]", circleData[circ], typeof(circleData[circ]))  // OBJECT
+        console.log("CIRC[CIRC][ID]", circleData[circ].id, typeof(circleData[circ].id))  // NUMBER
+      }
     }
-    // const target = circleData.filter(circle => circle[circle].id === x)
-    // console.log(circleData, "TRG", target)
+    determineCircleData()
+
+    const target = circleData.filter(circle => (circleData[circle].id != 20))
+    console.log("TRG", target)
     // console.log(typeof(circleData[1]), circleData[circle])
   }
   // STYLE FOR CUBE COMPONENT HOLDER //
