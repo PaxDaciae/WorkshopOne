@@ -6,9 +6,7 @@ import Squirrel from "../src/Images/Squirrel.png"
 export default function Cube(props){
     
     const [cubeState, setCubeState] = useState(0)
-    function alertYes(){
-        alert("yes")
-    }
+
 
     const [cubeStyle, setCubeStyle] = useState({
         height: "100px",
@@ -46,7 +44,6 @@ export default function Cube(props){
             <a onClick = {props.handleClick}><img src = {Squirrel}></img></a>
             <hr></hr>
             {props.count}
-            {props.count === 3 ? alertYes() : ""}
         </div>
         // <div style = {cubeStyle} onClick = {() => {clickEvent(props)}} className = "testCube">
         //     {/* {(props.count <= 3) ? props.count : props.count%4}
