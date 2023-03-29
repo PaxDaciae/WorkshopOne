@@ -21,22 +21,25 @@ function App() {
 
   function increaseCircleCount(x){
 
-    // THIS STEP USEFUL TO DETERMINE TYPES OF DATA I AM WORKING WITH //
-    /* function determineCircleData(){
-      for (let circ in circleData){
-        console.log("CIRCLES", circ , typeof(circ))  // STRING
-        console.log("CIRC[CIRC]", circleData[circ], typeof(circleData[circ]))  // OBJECT
-        console.log("CIRC[CIRC][ID]", circleData[circ].id, typeof(circleData[circ].id))  // NUMBER
-      }
-    }
-    determineCircleData() */
+                          // THIS STEP USEFUL TO DETERMINE TYPES OF DATA I AM WORKING WITH //
+                          /* function determineCircleData(){
+                            for (let circ in circleData){
+                              console.log("CIRCLES", circ , typeof(circ))  // STRING
+                              console.log("CIRC[CIRC]", circleData[circ], typeof(circleData[circ]))  // OBJECT
+                              console.log("CIRC[CIRC][ID]", circleData[circ].id, typeof(circleData[circ].id))  // NUMBER
+                            }
+                          }
+                          determineCircleData() */
 
     const target = circleData.filter(circleData => (circleData.id === x))
-    console.log("X", x, "TRG", target, typeof(target), target.id)
-    // setCircleData(prevData => [{
-    //   ...prevData,
-      
-    // }])
+    // console.log("CDATA", circleData[target], "X", x, )
+    console.log("TRG", target, typeof(target), target[0].id, circleData[target[0].id-1])
+    const newObject = {id: circleData.length, count: 0}
+    setCircleData(prevData => [...prevData, circleData[target[0].id].id={id: 0, count: 100}]
+            // circleData[target[0].id]: {count: count+1}
+
+    )
+    
     // console.log(typeof(circleData[1]), circleData[circle])
   }
   // STYLE FOR CUBE COMPONENT HOLDER //
