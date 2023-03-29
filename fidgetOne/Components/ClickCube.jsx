@@ -45,7 +45,7 @@ export default function Cube(props){
         },
     }
 
-    console.log("STLS", styles.smallCube, cubeStyle)
+    // console.log("STLS", styles.smallCube, cubeStyle)
     
     // function clickEvent(props){
     //     props.handleClick()
