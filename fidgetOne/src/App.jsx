@@ -37,6 +37,7 @@ function App() {
     // console.log("TRG", target, typeof(target), target[0].id, "FINA", circleData[target[0].id-1])
     function testy(){
       const oldCount = target[0].count
+      const targetId = target[0].id
       console.log("DEBUG", target[0].id)
       // console.log("COUNTVAL", oldCount)
       // console.log("NWTARG", ...target)
@@ -47,15 +48,34 @@ function App() {
       
     //   ])
 
-      // SET NEW STATE AS SUCH: //
-    setCircleData(circleData => 
-      // FILER THROUGH ALL OBJECTS IN CIRCLEDATA ARRAY //
+    // SET NEW STATE AS SUCH: //
+    setCircleData(prevData => 
+      // FITLER THROUGH ALL OBJECTS IN CIRCLEDATA ARRAY //
       [ ...circleData.filter(circleData =>
-        // AND FIND THE OBJECTS FOR WHICH THE ID IS NOT EQUAL TO THE TARGET (THE ID OF THE CLICKED ELEMENT) //
-         (circleData.id != target[0].id)),
+        // ADD THE OBJECTS FOR WHICH THE ID IS NOT EQUAL TO THE TARGET (THE ID OF THE CLICKED ELEMENT) //
+         (circleData.id != targetId)),
           // THEN ADD AN ELEMENT WITH THE ID OF THE CLICKED TARGET WITH THE COUNT OF THE TARGET PLUS 1 //
-        circleData[target[0].id] = {id: target[0].id, count: oldCount + 1}])
+        circleData[targetId] = {id: targetId, count: oldCount + 1}
+      ]
+    )
    
+    // SET NEW STATE AS SUCH: //
+    setCircleData(prevData => 
+      // AN ARRAY MADE UP OF //
+      [
+        // THE PREVIOUS STATE OBJECT, SPREAD //
+        ...prevData,
+        // WITH THE OBJECT IN THE POSITION OF THE TARGET ID - 1  //
+        // (TO ACCOUNT FOR INITIAL POS IN ARRAY BEING 0 AND FIRST ID BEING 1) //
+        // HAVING ITS COUNT INCREASED BY 1 //
+        prevData[targetId-1].count = oldCount + 1
+      ]
+    )
+    //   [
+    //     ...circleData.filter(
+    //       (circleData.id === targetId) ? {id: targetId, count: oldCount + 1} : circleData
+    //     )
+    //   ])
     // circleData[target[0].id].count = oldCount + 1
     // setCircleData(circleData => circleData[target[0].id].count = oldCount + 1)
       // setCircleData(circleData[target[0].id]= {id: target[0].id, count: oldCount + 1})
