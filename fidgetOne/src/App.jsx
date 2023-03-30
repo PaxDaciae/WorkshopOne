@@ -32,39 +32,33 @@ function App() {
                           determineCircleData() */
 
     const target = circleData.filter(circleData => (circleData.id === x))
-    console.log("TARG", typeof(target), target[0], target[0].id) // OK //
+    // console.log("TARG", typeof(target), target[0], target[0].id, "CRCD", circleData[target[0].id].id) // OK //
     // console.log("CDATA", circleData[target], "X", x, )
     // console.log("TRG", target, typeof(target), target[0].id, "FINA", circleData[target[0].id-1])
     function testy(){
       const oldCount = target[0].count
       console.log("DEBUG", target[0].id)
-      console.log("COUNTVAL", oldCount)
+      // console.log("COUNTVAL", oldCount)
       // console.log("NWTARG", ...target)
 
-    setCircleData(circleData => 
-      [ ...circleData.filter(circleData => (circleData.id != target[0].id)),
-        circleData[target[0].id] = {id: target[0].id, count: oldCount + 1},
-        
-        
+    // setCircleData(circleData => 
+    //   [ ...circleData.filter(circleData => (circleData.id != target[0].id)),
+    //     circleData[target[0].id] = {id: target[0].id, count: oldCount + 1},
       
-      // = 
-      
-      // {
-      //   id: ((circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1]).id), 
-      //   count: (circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1]).count +1, marker: "MARKED"
-      // },
-      
-      // `${ circleData[circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1].id].id}`,
-      // `${ circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1].id}`,
-      // `${ circleData[circleData[circleData[target[0].id-1].id-1].id-1].id}`,
-      // `AIA${  circleData[circleData[target[0].id-1].id-1].id}, ${circleData[circleData[target[0].id-1].id].count}`
-      // `${ circleData[target[0].id].id}`
-      // `${ Object.keys(circleData[target[0].id-1])}`
+    //   ])
 
-      // `PRIMUL ${(circleData.id != target[0].id)} AL_DOILEA ${circleData[target[0].id]} ID ${circleData[target[0].id-1].id} COUNT ${circleData[target[0].id-1].count} + 1`
-      ]
-    
-    )
+      // SET NEW STATE AS SUCH: //
+    setCircleData(circleData => 
+      // FILER THROUGH ALL OBJECTS IN CIRCLEDATA ARRAY //
+      [ ...circleData.filter(circleData =>
+        // AND FIND THE OBJECTS FOR WHICH THE ID IS NOT EQUAL TO THE TARGET (THE ID OF THE CLICKED ELEMENT) //
+         (circleData.id != target[0].id)),
+          // THEN ADD AN ELEMENT WITH THE ID OF THE CLICKED TARGET WITH THE COUNT OF THE TARGET PLUS 1 //
+        circleData[target[0].id] = {id: target[0].id, count: oldCount + 1}])
+   
+    // circleData[target[0].id].count = oldCount + 1
+    // setCircleData(circleData => circleData[target[0].id].count = oldCount + 1)
+      // setCircleData(circleData[target[0].id]= {id: target[0].id, count: oldCount + 1})
     
     /* DEBUG DATA: 
     `ObjectKeys: ${Object.keys(circleData[circleData[target[0].id-1].id])}` RETURNS THE KEYS OF THE OBJECT
@@ -72,21 +66,7 @@ function App() {
 
       (circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1]).count  RETURNS THE COUNT OF THE TARGETED CIRCLE
       (circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1]).id  RETURNS THE ID OF THE TARGETED CIRCLE
-
-
-       circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id].count 
-      = 
-      {(circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1]].id.count)+1}
-
-
-    */
-    // `${Object.keys(circleData[circleData[target[0].id-1].id])}`, `${circleData[circleData[target[0].id-1].id].id}`, 
-    // console.log("TESTY")
-    
-            // circleData[target[0].id]: {count: count+1}
-
-    
-    // console.log(typeof(circleData[1]), circleData[circle])
+      */
     }
     testy()
   }
@@ -110,3 +90,39 @@ function App() {
 
 
 export default App
+
+
+        
+      
+      // = 
+      
+      // {
+      //   id: ((circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1]).id), 
+      //   count: (circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1]).count +1, marker: "MARKED"
+      // },
+      
+      // `${ circleData[circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1].id].id}`,
+      // `${ circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id-1].id}`,
+      // `${ circleData[circleData[circleData[target[0].id-1].id-1].id-1].id}`,
+      // `AIA${  circleData[circleData[target[0].id-1].id-1].id}, ${circleData[circleData[target[0].id-1].id].count}`
+      // `${ circleData[target[0].id].id}`
+      // `${ Object.keys(circleData[target[0].id-1])}`
+
+      // `PRIMUL ${(circleData.id != target[0].id)} AL_DOILEA ${circleData[target[0].id]} ID ${circleData[target[0].id-1].id} COUNT ${circleData[target[0].id-1].count} + 1`
+
+
+      /*
+
+       circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1].id].count 
+      = 
+      {(circleData[circleData[circleData[circleData[target[0].id-1].id-1].id-1]].id.count)+1}
+
+
+    */
+    // `${Object.keys(circleData[circleData[target[0].id-1].id])}`, `${circleData[circleData[target[0].id-1].id].id}`, 
+    // console.log("TESTY")
+    
+            // circleData[target[0].id]: {count: count+1}
+
+    
+    // console.log(typeof(circleData[1]), circleData[circle])
