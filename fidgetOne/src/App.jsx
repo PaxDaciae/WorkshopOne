@@ -8,9 +8,14 @@ function App() {
   
   const [circleData, setCircleData]= useState(
     [
-    { id: 1, count: 10 },
-    { id: 2, count: 10 },
-    { id: 3, count: 10 },
+    { id: 1, count: 0 },
+    { id: 2, count: 0 },
+    { id: 3, count: 0 },
+    { id: 4, count: 0 },
+    { id: 5, count: 0 },
+    { id: 6, count: 0 },
+    { id: 7, count: 0 },
+    { id: 8, count: 0 },
     ] 
   )
 
@@ -44,15 +49,16 @@ function App() {
     setCircleData(prevData => 
       // AN ARRAY MADE UP OF //
       [
-        // THE PREVIOUS STATE OBJECT, SPREAD //
-        ...prevData,
-        // WITH THE OBJECT IN THE POSITION OF THE TARGET ID - 1  //
-        // (TO ACCOUNT FOR INITIAL POS IN ARRAY BEING 0 AND FIRST ID BEING 1) //
-        // HAVING ITS COUNT INCREASED BY 1 //
-        prevData[targetId-1].count = oldCount + 1
+        // SPREAD PREVIOUS STATE OBJECT AND FILTER //
+        ...prevData.filter(circleData =>          
+          // FOR THE OBJECT WHOSE ID MATCHES THE TARGET'S ID //
+          (circleData.id === targetId) ? 
+          // SET COUNT AS THE TARGET'S OLD COUNT + 1; FOR THE OTHER OBJECTS, KEEP UNCHANGED //
+          circleData.count = oldCount + 1 : circleData)
       ]
+      
     )
-
+    console.log("DBG","CDATA", circleData, "CDATA_L",circleData.length, "TGT", targetId)
     }
     testy()
   }
