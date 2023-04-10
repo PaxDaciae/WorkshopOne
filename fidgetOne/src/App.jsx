@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Cube from "../Components/ClickCube"
 import Circle from "../Components/ClickCircle"
 import './App.css'
+import BackgroundCube from "../Components/cubeBackgroundElement"
+import CubeCanvas from "../Components/CubeCanvas"
 
 function App() {
   // THIS ARRAY SHOULD HOLD SEVERAL CIRCLES EACH WITH THEIR OWN STATE// 
@@ -66,6 +68,9 @@ function App() {
   const containerStyle = {
     margin: "auto",
   }
+  const flexStyle = {
+    display: "flex"
+  }
 
   // THIS FUNCTION SHIFTS CUBE STATE FROM 1 TO 3//
   function clickAddCounter(){
@@ -74,8 +79,10 @@ function App() {
 
   return (
     <div style = {containerStyle}>
-      <Cube count = {count} handleClick = {clickAddCounter}/>
-      {circleArray}
+      <div style = {flexStyle}></div>
+        <CubeCanvas />
+      {/* <Cube count = {count} handleClick = {clickAddCounter}/>
+      {circleArray} */}
     </div>
   )
 }
