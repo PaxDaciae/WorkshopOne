@@ -6,16 +6,19 @@ export default function CubeCanvas(){
     // const height = screen.height
     const styles = {
         row: {
-            display: "flex"
+            display: "flex",
+            flexShrink: "0"
         }
     }
     let cubeNumber = []
 
-    for(let i = 0; i <= (screen.width / 11); i++){
+    const side = 10
+    const ratio = screen.width 
+    for(let i = 0; i <= (128); i++){
         cubeNumber.push(i)
     }
 
-    let cubeRow = cubeNumber.map(cube => <BackgroundCube />)
+    let cubeRow = cubeNumber.map(i => <BackgroundCube key = {i} side ={{side}}/>)
     return(
         <div style = {styles.row}> 
             {cubeRow}

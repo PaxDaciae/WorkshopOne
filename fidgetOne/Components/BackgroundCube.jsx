@@ -3,11 +3,11 @@
 import React from "react"
 import {useState} from "react"
 
-export default function CubeElement(){
-
-    const [cubeSizeState, setCubeSizeState] = useState(10)
-    const [cubeColorState, setCubeColorState] = useState(1)
-
+export default function CubeElement(props){
+    
+    const [cubeSizeState, setCubeSizeState] = useState(props.side.side)
+    const [cubeColorState, setCubeColorState] = useState(true)
+    console.log(props.side, "STATE", cubeSizeState, typeof(cubeSizeState.side))
     
     // useEffect(() => {
     //     const timer = setTimeout(() => {
@@ -24,20 +24,28 @@ export default function CubeElement(){
     //     return () => clearInterval(interval);
     //   }, []);
 
-      function changeColor() {setInterval(() => {
-        setCubeColorState(prevState => cubeColorState = !prevState);
-      }, 1000); }
+      // function changeColor() {setInterval(() => {
+      //   setCubeColorState(prevState => (cubeColorState = !prevState));
+      // }, 1000); }
+
+      useEffect(() => {
+        setInterval(() => {
+          function changeCol(){setCubeColorState(prevState => (cubeColorState = !prevState))}
+          changeCol()
+        }, 1000);
+      }, []);
 
     const styles = {
         backgroundCube : {
             margin: "1px",
             width: `${cubeSizeState}px`,
             height: `${cubeSizeState}px`,
-            backgroundColor:  cubeColorState === 0 ? "black" : "white"
+            backgroundColor:  cubeColorState ? "white" : "black",
+            color: "black"
         }
     }
     return (
         
-        <div className = "backgroundCube" style = {styles.backgroundCube}></div>
+        <div className = "backgroundCube" style = {styles.backgroundCube} key = {props.key}></div>
     )
 }
