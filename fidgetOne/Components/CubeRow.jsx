@@ -14,6 +14,8 @@ export default function CubeCanvas(){
 
     const side = 10
     const ratio = screen.width 
+                            //NEED TO UPDATE i <= value to take into account radio and side to fill all screen without modifying square size 
+
     for(let i = 0; i <= (128); i++){
         cubeNumber.push(i)
     }

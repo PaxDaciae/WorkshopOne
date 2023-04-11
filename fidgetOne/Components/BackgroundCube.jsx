@@ -28,12 +28,30 @@ export default function CubeElement(props){
       //   setCubeColorState(prevState => (cubeColorState = !prevState));
       // }, 1000); }
 
+      // useEffect(() => {
+      //   const interval = setInterval(() => {
+      //     setTime(new Date());
+      //   }, 1000);
+    
+      //   return () => clearInterval(interval);
+      // }, []);
+
       useEffect(() => {
-        setInterval(() => {
-          function changeCol(){setCubeColorState(prevState => (cubeColorState = !prevState))}
-          changeCol()
-        }, 1000);
+        const colorChange = setInterval(() => {
+          setCubeColorState(prevState => (cubeColorState = !prevState));
+        }, 2000);
+
+        return () => clearInterval(colorChange);
       }, []);
+
+      // useEffect(() => {
+      //   setInterval(() => {
+      //     function changeCol(){setCubeColorState(prevState => (cubeColorState = !prevState))}
+      //     changeCol()
+      //   }, 1000);
+      //   return () => {
+      //     clearInterval(interval);
+      // }, []);
 
     const styles = {
         backgroundCube : {
