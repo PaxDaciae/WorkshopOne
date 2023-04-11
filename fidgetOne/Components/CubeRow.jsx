@@ -1,5 +1,5 @@
 import React from "react"
-import BackgroundCube from "../Components/cubeBackgroundElement"
+import BackgroundCube from "./BackgroundCube"
 
 export default function CubeCanvas(){
     // const width = screen.width
@@ -11,8 +11,8 @@ export default function CubeCanvas(){
     }
     let cubeNumber = []
 
-    for(let i = 0; i <= (screen.width / 10); i++){
-        cubeNumber.push("A")
+    for(let i = 0; i <= (screen.width / 11); i++){
+        cubeNumber.push(i)
     }
 
     let cubeRow = cubeNumber.map(cube => <BackgroundCube />)

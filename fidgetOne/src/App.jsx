@@ -2,8 +2,10 @@ import { useState } from 'react'
 import Cube from "../Components/ClickCube"
 import Circle from "../Components/ClickCircle"
 import './App.css'
-import BackgroundCube from "../Components/cubeBackgroundElement"
-import CubeCanvas from "../Components/CubeCanvas"
+import BackgroundCube from "../Components/BackgroundCube"
+import Cuberow from "../Components/CubeRow"
+import Cubescreen from "../Components/Cubescreen"
+
 
 function App() {
   // THIS ARRAY SHOULD HOLD SEVERAL CIRCLES EACH WITH THEIR OWN STATE// 
@@ -67,6 +69,8 @@ function App() {
   // STYLE FOR CUBE COMPONENT HOLDER //
   const containerStyle = {
     margin: "auto",
+    overflow: "hidden",
+    margin: "0px"
   }
   const flexStyle = {
     display: "flex"
@@ -80,7 +84,8 @@ function App() {
   return (
     <div style = {containerStyle}>
       <div style = {flexStyle}></div>
-        <CubeCanvas />
+      <Cubescreen />
+        {/* <CubeCanvas /> */}
       {/* <Cube count = {count} handleClick = {clickAddCounter}/>
       {circleArray} */}
     </div>

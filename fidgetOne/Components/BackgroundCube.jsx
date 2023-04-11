@@ -8,6 +8,26 @@ export default function CubeElement(){
     const [cubeSizeState, setCubeSizeState] = useState(10)
     const [cubeColorState, setCubeColorState] = useState(1)
 
+    
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setCubeColorState = (prevState => !prevState)
+    //       }, 1000);
+    //     return () => clearTimeout(timer);
+    //   }, []);
+
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCubeColorState(prevState => cubeColorState = !prevState);
+    //       }, 5000); 
+    //     return () => clearInterval(interval);
+    //   }, []);
+
+      function changeColor() {setInterval(() => {
+        setCubeColorState(prevState => cubeColorState = !prevState);
+      }, 1000); }
+
     const styles = {
         backgroundCube : {
             margin: "1px",
@@ -17,6 +37,7 @@ export default function CubeElement(){
         }
     }
     return (
+        
         <div className = "backgroundCube" style = {styles.backgroundCube}></div>
     )
 }
