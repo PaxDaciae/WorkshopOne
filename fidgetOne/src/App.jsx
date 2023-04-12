@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import Cube from "../Components/ClickCube"
 import Circle from "../Components/ClickCircle"
 import './App.css'
@@ -68,7 +69,7 @@ function App() {
   }
   // STYLE FOR CUBE COMPONENT HOLDER //
   const containerStyle = {
-    margin: "auto",
+    // margin: "auto",
     overflow: "hidden",
     margin: "0px"
   }
@@ -80,6 +81,8 @@ function App() {
   function clickAddCounter(){
     setCount(prevCount => (prevCount)%3 + 1)
   }
+
+  
 
   return (
     <div style = {containerStyle}>
@@ -93,3 +96,12 @@ function App() {
 }
 
 export default App
+
+
+// useEffect(() => {
+//   const colorChange = setInterval(() => {
+//     console.log("PRNTS");
+//   }, 2000);
+
+//   return () => clearInterval(colorChange);
+// }, []);

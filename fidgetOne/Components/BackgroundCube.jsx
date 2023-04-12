@@ -2,64 +2,46 @@
 
 import React from "react"
 import {useState} from "react"
+import { useEffect } from "react"
 
 export default function CubeElement(props){
     
     const [cubeSizeState, setCubeSizeState] = useState(props.side.side)
-    const [cubeColorState, setCubeColorState] = useState(true)
-    console.log(props.side, "STATE", cubeSizeState, typeof(cubeSizeState.side))
+    const [cubeColorState, setCubeColorState] = useState(1)
+    // console.log(props.side, "STATE", cubeSizeState, typeof(cubeSizeState.side))
+    // const [clickState, setClickState] = useState(false)
+
     
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setCubeColorState = (prevState => !prevState)
-    //       }, 1000);
-    //     return () => clearTimeout(timer);
-    //   }, []);
+    // function handleClick(){
+    //     setClickState(prevState => !clickState)
+    //     console.log(clickState)
+    // }
 
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCubeColorState(prevState => cubeColorState = !prevState);
-    //       }, 5000); 
-    //     return () => clearInterval(interval);
-    //   }, []);
-
-      // function changeColor() {setInterval(() => {
-      //   setCubeColorState(prevState => (cubeColorState = !prevState));
-      // }, 1000); }
-
-      // useEffect(() => {
-      //   const interval = setInterval(() => {
-      //     setTime(new Date());
-      //   }, 1000);
+    useEffect(() => {
+      const colorChange = setInterval(() => {
+        setCubeColorState(prevState => Math.floor(Math.random()*2));
+      }, 50);
     
-      //   return () => clearInterval(interval);
-      // }, []);
+      return () => clearInterval(colorChange);
+    }, []);
 
-      useEffect(() => {
-        const colorChange = setInterval(() => {
-          setCubeColorState(prevState => (cubeColorState = !prevState));
-        }, 2000);
-
-        return () => clearInterval(colorChange);
-      }, []);
-
-      // useEffect(() => {
-      //   setInterval(() => {
-      //     function changeCol(){setCubeColorState(prevState => (cubeColorState = !prevState))}
-      //     changeCol()
-      //   }, 1000);
-      //   return () => {
-      //     clearInterval(interval);
-      // }, []);
+    // useEffect(() => {
+    //   const colorChangeDeux = setInterval(() => {
+    //     setCubeColorState(prevState => Math.floor(Math.random()*2));
+    //   }, 60);
+    
+    //   return () => clearInterval(colorChangeDeux);
+    // }, []);
+    
 
     const styles = {
         backgroundCube : {
             margin: "1px",
             width: `${cubeSizeState}px`,
             height: `${cubeSizeState}px`,
-            backgroundColor:  cubeColorState ? "white" : "black",
-            color: "black"
+            backgroundColor:  cubeColorState === 1 ? "white" : "black",
+            color: "black",
+            transitionDuration: "1s"
         }
     }
     return (
