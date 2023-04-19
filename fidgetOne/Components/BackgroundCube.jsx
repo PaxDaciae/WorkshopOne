@@ -6,7 +6,7 @@ import { useEffect } from "react"
 
 export default function CubeElement(props){
     
-    const [cubeSizeState, setCubeSizeState] = useState(props.side.side)
+    const [cubeSizeState, setCubeSizeState] = useState(props.side)
     const [cubeColorState, setCubeColorState] = useState(1)
     // console.log(props.side, "STATE", cubeSizeState, typeof(cubeSizeState.side))
     // const [clickState, setClickState] = useState(false)
@@ -39,7 +39,7 @@ export default function CubeElement(props){
             margin: "1px",
             width: `${cubeSizeState}px`,
             height: `${cubeSizeState}px`,
-            backgroundColor:  cubeColorState === 1 ? "white" : "black",
+            backgroundColor:  cubeColorState === 1 ? "white" : "red",
             color: "black",
             transitionDuration: "1s"
         }
